@@ -158,18 +158,19 @@ class CopypastaManager:
             pass
 
         for filename in dirlist:
-            abspath = os.path.join(path, filename)
-
-            if os.path.isfile(abspath):
-                try:
-                    with open(abspath) as file:
-                        content = file.read()
-                        self.pastastore.append(iter, [filename, content, abspath])
-                except IOError:
-                    pass
-            if os.path.isdir(abspath):
-                parent = self.pastastore.append(iter, [filename, "", abspath])
-                self.populate_pastatree(treestore, abspath, parent)
+            if not filename.startswith("."):
+                abspath = os.path.join(path, filename)
+    
+                if os.path.isfile(abspath):
+                    try:
+                        with open(abspath) as file:
+                            content = file.read()
+                            self.pastastore.append(iter, [filename, content, abspath])
+                    except IOError:
+                        pass
+                if os.path.isdir(abspath):
+                    parent = self.pastastore.append(iter, [filename, "", abspath])
+                    self.populate_pastatree(treestore, abspath, parent)
 
     def print_status(self, context, message):
         cid = self.statusbar.get_context_id(context)
