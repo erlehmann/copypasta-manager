@@ -16,6 +16,8 @@
     <property name="width_request">600</property>
     <property name="height_request">400</property>
     <property name="title" translatable="yes">CP Manager</property>
+    <property name="role">CP Manager main window</property>
+    <property name="window_position">center</property>
     <signal name="destroy" handler="on_window_destroy"/>
     <child>
       <object class="GtkVBox" id="vbox1">
@@ -30,11 +32,12 @@
                 <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
                 <child>
                   <object class="GtkScrolledWindow" id="scrolledwindow1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="hscrollbar_policy">automatic</property>
+                    <property name="hscrollbar_policy">never</property>
                     <property name="vscrollbar_policy">automatic</property>
                     <child>
                       <object class="GtkTreeView" id="treeview_pasta">
@@ -96,17 +99,22 @@
                 <property name="width_request">200</property>
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
+                <property name="spacing">2</property>
                 <child>
                   <object class="GtkScrolledWindow" id="scrolledwindow2">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="hscrollbar_policy">automatic</property>
+                    <property name="hscrollbar_policy">never</property>
                     <property name="vscrollbar_policy">automatic</property>
                     <child>
                       <object class="GtkTextView" id="textview_pasta">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="pixels_above_lines">2</property>
+                        <property name="pixels_below_lines">2</property>
                         <property name="wrap_mode">word</property>
+                        <property name="left_margin">4</property>
+                        <property name="right_margin">4</property>
                         <property name="buffer">textbuffer_pasta</property>
                       </object>
                     </child>
@@ -137,6 +145,7 @@
             </child>
           </object>
           <packing>
+            <property name="padding">2</property>
             <property name="position">0</property>
           </packing>
         </child>
