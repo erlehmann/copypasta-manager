@@ -155,7 +155,8 @@ class CopypastaManager:
             dirlist = os.listdir(path)
             dirlist.sort()
         except OSError: # no directory
-            pass
+            print "No pasta directory found. Quitting …"
+            raise IOError
 
         for filename in dirlist:
             if not filename.startswith("."):
