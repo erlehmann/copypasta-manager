@@ -32,6 +32,7 @@ class CopypastaManager:
         self.window = builder.get_object("window")
 
         self.statusbar = builder.get_object("statusbar")
+        self.scrolledwindow = builder.get_object("scrolledwindow2")
 
         self.pastaview = builder.get_object("textview_pasta")
 
@@ -146,6 +147,7 @@ class CopypastaManager:
         if iter:
             content = self.pastastore.get_value(iter, 1)
             self.pastabuffer.set_text(content)
+            self.scrolledwindow.get_vadjustment().set_value(0);
 
     def on_window_destroy(self, widget, data=None):
         gtk.main_quit()
