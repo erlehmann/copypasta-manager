@@ -105,7 +105,9 @@ class CopypastaManager:
             try:
                 with open(newfile, 'w') as file:
                     pass
-                self.pastastore.append(iter, [title, "", newfile])
+                iter = self.pastastore.append(iter, [title, "", newfile])
+                self.pastaselection.select_iter(iter)
+                self.pastatree.scroll_to_cell(self.pastatree.get_model().get_path(iter))
             except:
                 self.print_status("file creation", "Dateierstellung fehlgeschlagen: %s" % abspath)
         else:
